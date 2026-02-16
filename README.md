@@ -1,9 +1,9 @@
-# QA Automation Platform - Demo
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/nadreal/qa-automation-platform/ci-cd-pipeline.yml?branch=main&style=flat-square) &nbsp;&nbsp;
+# QA Mock Automation 
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/nadreal/qa-mock-automation/ci-cd-pipeline.yml?branch=main&style=flat-square) &nbsp;&nbsp;
 ![Pytest](https://img.shields.io/badge/Pytest-tested-success?style=flat-square) &nbsp;&nbsp;
 ![Python Version](https://img.shields.io/badge/Python-3.11-blue?style=flat-square) &nbsp;&nbsp;
 ![Playwright](https://img.shields.io/badge/Playwright-automation-blueviolet?style=flat-square) &nbsp;&nbsp;
-[![Allure Test Report](https://img.shields.io/badge/%20Report-Allure-purple)](https://nadreal.github.io/qa-automation-platform/)
+[![Allure Test Report](https://img.shields.io/badge/%20Report-Allure-purple)](https://nadreal.github.io/qa-mock-automation/)
 ## Project Overview
    - Demonstrate a mock **FastAPI backend** using REST API, that simulates user management and health check endpoints with in-memory mock storage   
 
@@ -79,7 +79,7 @@ This allows:
 
 ## Test Reporting
 
-- Open Allure [Test Report ](https://nadreal.github.io/qa-automation-platform/index.html) 
+- Open Allure [Test Report ](https://nadreal.github.io/qa-mock-automation/index.html) 
 
 ## Author
 
