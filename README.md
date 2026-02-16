@@ -1,17 +1,17 @@
 # QA Automation Platform - Demo
-![GitHub Workflow Status:](https://img.shields.io/github/actions/workflow/status/nadreal/qa-automation-platform/ci-cd-pipeline.yml?branch=main&style=flat-square) &nbsp;&nbsp;
-![Pytest](https://img.shields.io/badge/pytest-tested-success?style=flat-square) &nbsp;&nbsp;
-![Python Version](https://img.shields.io/badge/python-3.11-blue?style=flat-square) &nbsp;&nbsp;
-![Playwright](https://img.shields.io/badge/playwright-automation-blueviolet?style=flat-square)
-
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/nadreal/qa-automation-platform/ci-cd-pipeline.yml?branch=main&style=flat-square) &nbsp;&nbsp;
+![Pytest](https://img.shields.io/badge/Pytest-tested-success?style=flat-square) &nbsp;&nbsp;
+![Python Version](https://img.shields.io/badge/Python-3.11-blue?style=flat-square) &nbsp;&nbsp;
+![Playwright](https://img.shields.io/badge/Playwright-automation-blueviolet?style=flat-square) &nbsp;&nbsp;
+[![Allure Test Report](https://img.shields.io/badge/%20Report-Allure-purple)](https://nadreal.github.io/qa-automation-platform/)
 ## Project Overview
-   - Demonstrate a mock **FastAPI backend** using REST API, that simulates user management and health check endpoints with in-memory storage   
+   - Demonstrate a mock **FastAPI backend** using REST API, that simulates user management and health check endpoints with in-memory mock storage   
 
    - Clean test architecture
 
    - API client abstraction pattern
 
-   - Schema-based validation
+   - Pydantic Schema-based validation
 
    - Positive and negative test coverage
 
@@ -53,10 +53,9 @@ tests/
 ```
 ## Architecture Overview
 
-The backend follows a simple service abstraction pattern.
-Business logic is isolated behind a `UserService` interface.
-Currently, an in-memory implementation (`UserServiceMemory`) is used for
-both API execution and automated tests.
+- The backend follows a simple service abstraction pattern
+- Business logic is isolated behind a `UserService` interface
+- Currently, an in-memory implementation (`UserServiceMemory`) is used for both API execution and automated tests
 
 This allows:
 - deterministic and fast tests
@@ -78,8 +77,13 @@ This allows:
 
 - **DELETE `/users/{id}`** - Delete a user by ID.
 
+## Test Reporting
+
+- Open Allure [Test Report ](https://nadreal.github.io/qa-automation-platform/index.html) 
 
 ## Author
 
 👨‍🚀 Stevan Grubac [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourusername) <br>
 💻 Software Engineer | QA Automation | DevOps
+
+

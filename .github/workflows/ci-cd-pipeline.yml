@@ -24,10 +24,37 @@ jobs:
           pip install -r requirements-dev.txt
       
       - name:  Set PYTHONPATH
-        run: echo "PYTHONPATH=$PWD" >> $GITHUB_ENV
-      
-      - name: Run tests
+        run: echo "PYTHONPATH=$PWD" >> $GITHUB_ENV     
+        
+      - name: Run tests with Allure
+        run: |          
+          mkdir -p allure-results
+          pytest tests/ --alluredir=allure-results --cov=backend --cov-report=term-missing
+                
+      - name: Generate Allure report (using tobix/allure-cli)
         run: |
-          export PYTHONPATH=$PWD
-          pytest tests/ --cov=backend --cov-report=term-missing
+          mkdir -p allure-results allure-report
+          if [ ! -d "allure-results" ] || [ -z "$(ls -A allure-results 2>/dev/null || true)" ]; then
+            echo "No allure results found; creating placeholder report."
+            mkdir -p allure-report
+            echo "<!-- no allure results -->" > allure-report/index.html
+          else
+            docker run --rm \
+              -v "${{ github.workspace }}/allure-results:/results" \
+              -v "${{ github.workspace }}/allure-report:/report" \
+              tobix/allure-cli:latest generate /results -o /report --clean
+          fi
 
+      - name: Upload Allure results artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results
+
+      - name: Deploy Allure report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_PAGES_PAT }}
+          publish_dir: ./allure-report
+          publish_branch: gh-pages
